@@ -1,5 +1,9 @@
-def add(a,b):
-    return a + b 
+# calculator/__init__.py
 
-def subtract(a,b):
-    return a - b
+# Import specific components but avoid circular imports
+from .operations import Operations
+from .calculations import Calculation
+from .history import CalculationHistory
+
+# Define what is available when importing the calculator package
+__all__ = ["Operations", "Calculation", "CalculationHistory"]
