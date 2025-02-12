@@ -1,37 +1,29 @@
-"""##def add(a,b):
-  #  return a + b 
+from decimal import Decimal, getcontext
 
-#def subtract(a,b):
- #   return a - b
+# Set precision for decimal calculations
+getcontext().prec = 28
 
-#def multiply(a,b):
- #   return a * b
-
-#def divide(a,b):
- #   return a / b
-
- calculator/operations.py """
 class Operations:
-    """Performs basic arithmetic operations."""
+    #Performs basic arithmetic operations using Decimal for accuracy.
 
     @staticmethod
-    def add(a: float, b: float) -> float:
-        """Returns the sum of two numbers."""
-        return a + b
+    def add(a: str, b: str) -> Decimal:
+        #Returns the sum of two numbers as Decimal.
+        return Decimal(a) + Decimal(b)
 
     @staticmethod
-    def subtract(a: float, b: float) -> float:
-        """Returns the difference between two numbers."""
-        return a - b
+    def subtract(a: str, b: str) -> Decimal:
+        #Returns the difference between two numbers as Decimal.
+        return Decimal(a) - Decimal(b)
 
     @staticmethod
-    def multiply(a: float, b: float) -> float:
-        """Returns the product of two numbers."""
-        return a * b
+    def multiply(a: str, b: str) -> Decimal:
+        #Returns the product of two numbers as Decimal.
+        return Decimal(a) * Decimal(b)
 
     @staticmethod
-    def divide(a: float, b: float) -> float:
-        """Returns the quotient of two numbers. Raises error on divide by zero."""
-        if b == 0:
+    def divide(a: str, b: str) -> Decimal:
+        #Returns the quotient of two numbers as Decimal. Raises error on divide by zero.
+        if Decimal(b) == Decimal("0"):
             raise ZeroDivisionError("Cannot divide by zero")
-        return a / b
+        return Decimal(a) / Decimal(b)

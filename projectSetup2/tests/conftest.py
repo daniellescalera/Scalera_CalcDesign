@@ -1,15 +1,4 @@
-#import pytest
-#from calculator.history import History
-
-#@pytest.fixture
-#def clear_calculator_history():
- #   """Fixture to clear the calculator history before and after each test."""
-  #  History.clear_history()  # Clear history before the test runs
-   # yield  # Run the test
-    #History.clear_history()  # Clear history after the test runs
-
-
-# tests/conftest.py
+"""This module contains the main functionality for the calculator application."""
 import pytest
 from calculator.calculations import Calculation
 from calculator.history import CalculationHistory
