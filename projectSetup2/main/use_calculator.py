@@ -4,7 +4,8 @@ from calculator.history import CalculationHistory
 from calculator.calculations import Calculation
 
 def main():
-    #Interactive calculator program with decimal and whole number support.
+
+    """Interactive calculator program with decimal and whole number support."""
     while True:
         print("\n🔢 Simple Calculator 🔢")
         print("Choose an operation: add, subtract, multiply, divide, history")
@@ -45,7 +46,8 @@ def main():
             # Create a calculation instance and add it to history
             calculation = Calculation(operation, float(num1), float(num2))
             CalculationHistory.add_calculation(calculation)
-
+            
+            result = calculation.result
             print(f"✅ Result: {result}")
 
         except ValueError:

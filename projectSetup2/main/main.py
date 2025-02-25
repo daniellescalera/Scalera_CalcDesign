@@ -1,18 +1,28 @@
-# main/main.py
+"""importing all of the needed commands"""
 from calculator.calculations import Calculation
 from calculator.history import CalculationHistory
-
+from calculator import Calculator
 def main():
-    #Main function to interact with the calculator.
+    calculator = Calculator()  # Initialize the Calculator class with command handler
+    calculator.start()
+
     while True:
         print("\nSimple Calculator")
         print("Choose operation: add, subtract, multiply, divide")
+        print("Or use commands: greet, goodbye, exit, or menu")
         print("Type 'exit' to quit.")
 
-        operation = input("Enter operation: ").strip().lower()
-        if operation == "exit":
-            break
-        if operation not in ["add", "subtract", "multiply", "divide"]:
+        user_input = input("Enter operation or command: ").strip().lower()
+
+        # Check if the input is a command
+        if user_input in ["greet", "goodbye", "exit"]:
+            calculator.command_handler.execute_command(user_input)
+            if user_input == "exit":
+                break
+            continue
+
+        # Handle arithmetic operations
+        if user_input not in ["add", "subtract", "multiply", "divide"]:
             print("Invalid operation. Try again.")
             continue
 
@@ -20,7 +30,7 @@ def main():
             a = float(input("Enter first number: "))
             b = float(input("Enter second number: "))
 
-            calculation = Calculation(operation, a, b)
+            calculation = Calculation(user_input, a, b)
             CalculationHistory.add_calculation(calculation)
 
             print(f"Result: {calculation.result}")
