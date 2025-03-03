@@ -9,6 +9,7 @@ from .commands.goodbye_command import GoodbyeCommand
 from .commands.exit_command import ExitCommand
 from .commands.plugin_loader import PluginLoader
 from .commands.menu import MenuCommand
+
 __all__ = [
     "Operations",
     "Calculation",
@@ -27,6 +28,7 @@ class Calculator:
         self.command_handler = CommandHandler()
 
     def start(self) -> None:
+        """registering built-in commands with the command handler"""
         # Registering built-in commands with the command handler
         self.command_handler.register_command("greet", GreetCommand())
         self.command_handler.register_command("goodbye", GoodbyeCommand())
